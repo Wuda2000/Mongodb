@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performance Records</title>
+</head>
+<body>
+    <h1>Performance Records</h1>
+    <table border="1">
+        <tr>
+            <th>Record ID</th>
+            <th>Employee ID</th>
+            <th>KPI ID</th>
+            <th>Evaluation Period</th>
+            <th>Achieved Value</th>
+            <th>Score</th>
+            <th>Review Date</th>
+            <th>Reviewer ID</th>
+        </tr>
+        {% for record in performance_records %}
+        <tr>
+            <td>{{ record['performance_record_id'] }}</td>
+            <td>{{ record['employee_id'] }}</td>
+            <td>{{ record['kpi_id'] }}</td>
+            <td>{{ record['evaluation_period'] }}</td>
+            <td>{{ record['achieved_value'] }}</td>
+            <td>{{ record['score'] }}</td>
+            <td>{{ record['review_date'] }}</td>
+            <td>{{ record['reviewer_id'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

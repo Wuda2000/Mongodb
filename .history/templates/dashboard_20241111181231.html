@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Company Dashboard</h1>
+
+    <section>
+        <h2>Employees</h2>
+        <ul>
+            {% for employee in employees %}
+                <li>{{ employee.name }} - {{ employee.position }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>KPIs</h2>
+        <ul>
+            {% for kpi in kpis %}
+                <li>{{ kpi.name }}: {{ kpi.target }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Performance Records</h2>
+        <ul>
+            {% for record in performance_records %}
+                <li>{{ record.employee_name }}: {{ record.performance }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Feedback</h2>
+        <ul>
+            {% for feedback in feedbacks %}
+                <li>{{ feedback.employee_name }}: {{ feedback.comment }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Goals</h2>
+        <ul>
+            {% for goal in goals %}
+                <li>{{ goal.description }} - Deadline: {{ goal.deadline }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Automated Reviews</h2>
+        <ul>
+            {% for review in automated_reviews %}
+                <li>{{ review.employee_name }}: {{ review.review }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Dashboard Metrics</h2>
+        <ul>
+            {% for metric in dashboard_metrics %}
+                <li>{{ metric.name }}: {{ metric.value }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+</body>
+</html>

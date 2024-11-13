@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KPIs</title>
+</head>
+<body>
+    <h1>KPI List</h1>
+    <table border="1">
+        <tr>
+            <th>KPI ID</th>
+            <th>KPI Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Target Value</th>
+            <th>Weight</th>
+        </tr>
+        {% for kpi in kpis %}
+        <tr>
+            <td>{{ kpi['kpi_id'] }}</td>
+            <td>{{ kpi['kpi_name'] }}</td>
+            <td>{{ kpi['description'] }}</td>
+            <td>{{ kpi['kpi_category'] }}</td>
+            <td>{{ kpi['target_value'] }}</td>
+            <td>{{ kpi['weight'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

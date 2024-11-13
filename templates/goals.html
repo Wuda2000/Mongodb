@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goals</title>
+</head>
+<body>
+    <h1>Goals List</h1>
+    <table border="1">
+        <tr>
+            <th>Goal ID</th>
+            <th>Employee ID</th>
+            <th>KPI ID</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>Due Date</th>
+            <th>Status</th>
+        </tr>
+        {% for goal in goals %}
+        <tr>
+            <td>{{ goal['goal_id'] }}</td>
+            <td>{{ goal['employee_id'] }}</td>
+            <td>{{ goal['kpi_id'] }}</td>
+            <td>{{ goal['goal_description'] }}</td>
+            <td>{{ goal['goal_start_date'] }}</td>
+            <td>{{ goal['goal_due_date'] }}</td>
+            <td>{{ goal['goal_status'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+
+    <!-- Dashboard Metrics Table -->
+    <h2>Dashboard Metrics</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Metric ID</th>
+                <th>EMPLOYEE ID</th>
+                <th>METRIC NAME</th>
+                <th>METRIC Value</th>
+                <th>UPDATE TIME</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for metric in dashboard_metrics %}
+                <tr>
+                    <td>{{ metric['metric_id'] }}</td>
+                    <td>{{ metric['employee_id'] }}</td>
+                    <td>{{ metric['metric_name'] }}</td>
+                    <td>{{ metric['metric_value'] }}</td>
+                    <td>{{ metric['update_time'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <!-- Employees Table -->
+    <h2>Employees</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Manager ID</th>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>SurName</th>
+                <th>Department</th>
+                <th>Position</th>
+                <th>Hire Date</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <td>{{ employee['manager_id'] }}</td>
+                    <td>{{ employee['employee_id'] }}</td>
+                    <td>{{ employee['first_name'] }}</td>
+                    <td>{{ employee['last_name'] }}</td>
+                    <td>{{ employee['department'] }}</td>
+                    <td>{{ employee['position'] }}</td>
+                    <td>{{ employee['date_hired'] }}</td>
+                    <td>{{ employee['email'] }}</td>
+                    <td>{{ employee['phone'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- KPIs Table -->
+    <h2>KPIs</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>KPI ID</th>
+                <th>KPI Name</th>
+                <th>Description</th>
+                <th>KPI CATEGORY</th>
+                <th>Target</th>
+                <th>Weight</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for kpi in kpis %}
+                <tr>
+                    <td>{{ kpi['kpi_id'] }}</td>
+                    <td>{{ kpi['kpi_name'] }}</td>
+                    <td>{{ kpi['description'] }}</td>
+                    <td>{{ kpi['kpi_category'] }}</td>
+                    <td>{{ kpi['target_value'] }}</td>
+                    <td>{{ kpi['weight'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Performance Records Table -->
+    <h2>Performance Records</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>PERFORMANCE Record ID</th>
+                <th>Employee ID</th>
+                <th>KPI ID</th>
+                <th>Evaluation Period</th>
+                <th>Achieved Value</th>
+                <th>Score</th>
+                <th>Review Date</th>
+                <th>Reviewer ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in performance_records %}
+                <tr>
+                    <td>{{ record['performance_record_id'] }}</td>
+                    <td>{{ record['employee_id'] }}</td>
+                    <td>{{ record['kpi_id'] }}</td>
+                    <td>{{ record['evaluation_period'] }}</td>
+                    <td>{{ record['achieved_value'] }}</td>
+                    <td>{{ record['score'] }}</td>
+                    <td>{{ record['review_date'] }}</td>
+                    <td>{{ record['reviewer_id'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Feedback Table -->
+    <h2>Feedback</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Feedback ID</th>
+                <th>PERFORMANCE RECORD ID</th>
+                <th>COMMENTS</th>
+                <th>Feedback Date</th>
+                <th>Reviewer ID</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback['feedback_id'] }}</td>
+                    <td>{{ feedback['performance_record_id'] }}</td>
+                    <td>{{ feedback['comments'] }}</td>
+                    <td>{{ feedback['Feedback Date'] }}</td>
+                    <td>{{ feedback['reviewer_id'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Goals Table -->
+    <h2>Goals</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Goal ID</th>
+                <th>Employee ID</th>
+                <th>Goal Name</th>
+                <th>Goal Description</th>
+                <th>START DATE</th>
+                <th>Deadline</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for goal in goals %}
+                <tr>
+                    <td>{{ goal['goal_id'] }}</td>
+                    <td>{{ goal['employee_id'] }}</td>
+                    <td>{{ goal['kpi_id'] }}</td>
+                    <td>{{ goal['goal_description'] }}</td>
+                    <td>{{ goal['goal_start_date'] }}</td>
+                    <td>{{ goal['goal_due_date'] }}</td>
+                    <td>{{ goal['goal_status'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Automated Reviews Table -->
+    <h2>Automated Reviews</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Review ID</th>
+                <th>Employee ID</th>
+                <th>KPI ID</th>
+                <th>AUTOMATED SCORE</th>
+                <th>Review Date</th>
+                <th>COMMENTS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in automated_reviews %}
+                <tr>
+                    <td>{{ review['review_id'] }}</td>
+                    <td>{{ review['employee_id'] }}</td>
+                    <td>{{ review['kpi_id'] }}</td>
+                    <td>{{ review['automated_score'] }}</td>
+                    <td>{{ review['review_date'] }}</td>
+                    <td>{{ review['comments'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+</body>
+</html>

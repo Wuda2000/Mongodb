@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Metrics</title>
+</head>
+<body>
+    <h1>Dashboard Metrics</h1>
+    <table border="1">
+        <tr>
+            <th>Metric ID</th>
+            <th>Employee ID</th>
+            <th>Metric Name</th>
+            <th>Metric Value</th>
+            <th>Update Time</th>
+        </tr>
+        {% for metric in dashboard_metrics %}
+        <tr>
+            <td>{{ metric['metric_id'] }}</td>
+            <td>{{ metric['employee_id'] }}</td>
+            <td>{{ metric['metric_name'] }}</td>
+            <td>{{ metric['metric_value'] }}</td>
+            <td>{{ metric['update_time'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

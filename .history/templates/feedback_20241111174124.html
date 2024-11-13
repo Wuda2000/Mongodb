@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+</head>
+<body>
+    <h1>Feedback List</h1>
+    <table border="1">
+        <tr>
+            <th>Feedback ID</th>
+            <th>Performance Record ID</th>
+            <th>Reviewer ID</th>
+            <th>Comments</th>
+            <th>Recommendations</th>
+            <th>Date Given</th>
+        </tr>
+        {% for feedback in feedbacks %}
+        <tr>
+            <td>{{ feedback['feedback_id'] }}</td>
+            <td>{{ feedback['performance_record_id'] }}</td>
+            <td>{{ feedback['reviewer_id'] }}</td>
+            <td>{{ feedback['comments'] }}</td>
+            <td>{{ feedback['recommendations'] }}</td>
+            <td>{{ feedback['date_given'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

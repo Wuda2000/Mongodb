@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automated Reviews</title>
+</head>
+<body>
+    <h1>Automated Reviews List</h1>
+    <table border="1">
+        <tr>
+            <th>Review ID</th>
+            <th>Employee ID</th>
+            <th>KPI ID</th>
+            <th>Automated Score</th>
+            <th>Review Date</th>
+            <th>Comments</th>
+        </tr>
+        {% for review in automated_reviews %}
+        <tr>
+            <td>{{ review['review_id'] }}</td>
+            <td>{{ review['employee_id'] }}</td>
+            <td>{{ review['kpi_id'] }}</td>
+            <td>{{ review['automated_score'] }}</td>
+            <td>{{ review['review_date'] }}</td>
+            <td>{{ review['comments'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
